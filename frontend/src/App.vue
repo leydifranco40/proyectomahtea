@@ -116,7 +116,7 @@
         v-on:completedSignUp="completedSignUp"
         v-on:completedLogIn="completedLogIn"
         v-on:logOut="logOut"
-        v-on:loadPortatil="loadServices"
+        v-on:loadServices="loadServices"
         v-on:loadHome="loadHome"
       ></router-view>
     </div>

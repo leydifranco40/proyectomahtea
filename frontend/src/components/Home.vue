@@ -302,7 +302,7 @@ export default {
     "completedSignUp",
     "completedLogIn",
     "logOut",
-    "loadPortatil",
+    "loadServices",
     "loadNewPc",
     "loadHome",
   ],
