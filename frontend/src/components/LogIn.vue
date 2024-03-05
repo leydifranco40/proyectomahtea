@@ -1,20 +1,22 @@
 <template>
-  <div class="form-signin w-100 m-auto bg-danger-subtle mt-3 mb-3 rounded text-center">
-    <form @submit.prevent="validarRegistro" class="formulario">
+  <div
+    class="form-signin w-100 m-auto bg-danger-subtle mt-3 mb-3 rounded text-center"
+  >
+    <form @submit.prevent="processLogInUser" class="formulario">
       <img src="../assets/mahtea.png" height="150" width="200" />
       <h1 class="mb-3 fw-normal">Iniciar sesión</h1>
 
       <div class="form-floating">
         <input
-          type="email"
+          type="text"
           v-model="user.username"
-          id="correo"
+          id="usuario"
           class="form-control"
-          placeholder="Correo Electrónico"
+          placeholder="Usuario"
           autocomplete="current-user"
           required
         />
-        <label for="correo">Correo Electrónico</label>
+        <label for="usuario">Usuario</label>
       </div>
       <div class="form-floating">
         <input
@@ -38,6 +40,9 @@ import axios from "axios";
 
 export default {
   name: "LogIn",
+
+  emits: ["completedLogIn"],
+
   data: function () {
     return {
       user: {
@@ -47,7 +52,6 @@ export default {
     };
   },
   methods: {
-    
     processLogInUser: function () {
       axios
         .post("http://127.0.0.1:8000/login/", this.user, { headers: {} })
@@ -60,7 +64,7 @@ export default {
           this.$emit("completedLogIn", dataLogIn);
         })
         .catch((error) => {
-          if (error.response.status == "401")
+          if (error.response.status === 401)
             alert("ERROR 401: Credenciales Incorrectas.");
           this.user.username = "";
           this.user.password = "";

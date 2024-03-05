@@ -5,6 +5,7 @@ from rest_framework_simplejwt.backends import TokenBackend
 from rest_framework.permissions import IsAuthenticated
 from appMAHTEA.models.user import User
 from appMAHTEA.serializers.userSerializers import UserSerializer
+
 class UserDetailView(generics.RetrieveAPIView):
  queryset = User.objects.all()
  serializer_class = UserSerializer

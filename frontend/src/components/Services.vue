@@ -27,7 +27,7 @@
             </p>
         </div>
         <div class="card-footer align-center">
-          <a :href="app.masInformacion" class="btn btn-primary">Mas Información</a>
+          <a :href="app.masInformacion" target="_blank" class="btn btn-primary">Mas Información</a>
         </div>
     </div>
 </div>

@@ -137,7 +137,6 @@ export default {
   data: function () {
     return {
       isAuth: false,
-      isSuper: false,
     };
   },
 
@@ -148,8 +147,9 @@ export default {
   methods: {
     verifyAuth: function () {
       this.$store.commit("setIsAuth", this.isAuth);
+      console.log("llego al veryauth");
       if (this.isAuth) {
-        this.$router.push({ name: "user-home" });
+        this.loadServices();
       } else {
         this.$router.push({ name: "home" });
       }
